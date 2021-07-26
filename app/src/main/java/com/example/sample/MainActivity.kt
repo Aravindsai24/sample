@@ -18,14 +18,19 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.example.sample.modal.Word
 
 class MainActivity : AppCompatActivity() {
     var TAG = MyService::class.simpleName
     lateinit var etOne: EditText
+    lateinit var roomDb: WordRoomDB
+    lateinit var wordDao: WordDao
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         etOne = findViewById(R.id.etOne)
+        roomDb = WordRoomDB.getDatabase(this)
+        wordDao = roomDb.wordDao()
         val CHANNEL_ID = "sample_app_notif"
         createNotificationChannel(CHANNEL_ID)
         val notif_button = findViewById<Button>(R.id.buttonotif)
@@ -39,6 +44,17 @@ class MainActivity : AppCompatActivity() {
                 notify(123, builder.build())
             }
         }
+    }
+
+    fun dbHandler(view: View) {
+        insertWordAsynchronously()
+    }
+
+    private fun insertWordAsynchronously() {
+        var data = etOne.text.toString()
+        var word = Word(data)
+        var insertTask = InsertTask(wordDao,word)
+        insertTask.execute()
     }
 
     override fun onPause() {
@@ -92,6 +108,8 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
+
     var serviceConnection = object : ServiceConnection {
         override fun onServiceConnected(p0: ComponentName?, binderPipe: IBinder?) { //4
             var localBinder = binderPipe as LocalBinder//5
