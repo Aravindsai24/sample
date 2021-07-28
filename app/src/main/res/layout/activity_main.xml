@@ -6,80 +6,87 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/buttonotif"
+    <EditText
+        android:id="@+id/etOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="getNotif"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/buttonotif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="getNotif"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_other_app" />
+
+    <Button
+        android:id="@+id/btn_other_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:onClick="handleService"
+        android:text="go to other app"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_db" />
+
+    <Button
         android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:onClick="handleService"
         android:text="startService"
-        app:layout_constraintEnd_toStartOf="@+id/buttonotif"
-        app:layout_constraintTop_toBottomOf="@+id/buttonotif" />
-
-    <Button
-        android:id="@+id/btnEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:onClick="handleService"
-        android:text="endService"
-        app:layout_constraintStart_toEndOf="@+id/buttonotif"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonotif" />
 
     <Button
         android:id="@+id/btnBind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:text="Bind"
-        app:layout_constraintEnd_toStartOf="@+id/btnEnd"
-        app:layout_constraintStart_toEndOf="@+id/btnStart"
-        app:layout_constraintTop_toBottomOf="@+id/btnEnd" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 
     <Button
-        android:id="@+id/btn_other_app"
+        android:id="@+id/btnEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="171dp"
+        android:layout_marginLeft="171dp"
         android:onClick="handleService"
-        android:text="go to other app"
-        app:layout_constraintBottom_toTopOf="@+id/buttonotif"
-        app:layout_constraintEnd_toEndOf="@+id/buttonotif"
-        app:layout_constraintStart_toStartOf="@+id/buttonotif" />
-
-    <EditText
-        android:id="@+id/etOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintBottom_toTopOf="@+id/button_db"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="endService"
+        app:layout_constraintStart_toStartOf="@+id/btnStart"
+        app:layout_constraintTop_toTopOf="@+id/btnStart" />
 
     <Button
         android:id="@+id/button_db"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="12dp"
         android:onClick="dbHandler"
         android:text="dbADD"
-        app:layout_constraintBottom_toTopOf="@+id/btn_other_app"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etOne" />
+
+    <TextView
+        android:id="@+id/tv_db"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBind" />
 </androidx.constraintlayout.widget.ConstraintLayout>
